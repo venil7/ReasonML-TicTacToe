@@ -31,3 +31,12 @@ let possible_moves = (board: board) : list(int) =>
   |> List.mapi((i: int, c: cell) => (i, c))
   |> List.filter(((_, c)) => c == Empty)
   |> List.map(((i, _)) => i);
+
+let occupied_cell = (player: player, cell: cell) : bool =>
+  switch cell {
+  | Occupied(p) => p == player
+  | _ => false
+  };
+
+let occupied_row = (player: player, row: list(cell)) : bool =>
+  row |> List.for_all(occupied_cell(player));

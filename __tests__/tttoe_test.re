@@ -35,4 +35,23 @@ describe("Board", () => {
     expect(possible_moves([Empty, Occupied(X), Occupied(O), Empty]))
     |> toEqual([0, 3])
   );
+  test("occupied_cell X", () =>
+    expect(occupied_cell(X, Occupied(X))) |> toEqual(true)
+  );
+  test("occupied_cell O", () =>
+    expect(occupied_cell(O, Occupied(O))) |> toEqual(true)
+  );
+  test("occupied_cell empty", () =>
+    expect(occupied_cell(X, Empty)) |> toEqual(false)
+  );
+  test("occupied_row (empty)", () =>
+    expect(occupied_row(X, [Empty, Empty, Empty])) |> toEqual(false)
+  );
+  test("occupied_row (partial)", () =>
+    expect(occupied_row(X, [Empty, Occupied(X), Empty])) |> toEqual(false)
+  );
+  test("occupied_row (full)", () =>
+    expect(occupied_row(X, [Occupied(X), Occupied(X), Occupied(X)]))
+    |> toEqual(true)
+  );
 });
