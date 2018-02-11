@@ -49,3 +49,13 @@ describe("Chunks Of", () => {
     expect(chunks_of(3, list)) |> toEqual(chunks)
   );
 });
+
+describe("Diagonal", () => {
+  let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+  test("diag_left", () =>
+    expect(diag_left(matrix)) |> toEqual([1, 5, 9])
+  );
+  test("diag_right", () =>
+    expect(diag_right(matrix)) |> toEqual([3, 5, 7])
+  );
+});

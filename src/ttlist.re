@@ -29,3 +29,9 @@ let rec chunks_of = (size: int, xs: list('a)) : list(list('a)) =>
   | [] => []
   | _ => [take(size, xs), ...chunks_of(size, drop(size, xs))]
   };
+
+let diag_left = (matrix: list(list('a))) : list('a) =>
+  matrix |> List.mapi((i, line) => List.nth(line, i));
+
+let diag_right = (matrix: list(list('a))) : list('a) =>
+  matrix |> List.mapi((i, line) => List.nth(line, List.length(line) - i - 1));
