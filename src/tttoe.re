@@ -1,3 +1,5 @@
+open Ttlist;
+
 type player =
   | X
   | O;

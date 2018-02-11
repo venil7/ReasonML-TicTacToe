@@ -4,12 +4,14 @@ open Tttoe;
 
 describe("Board", () => {
   open Expect;
+  /* new board */
   test("new_board x3", () =>
     expect(new_board(3)) |> toEqual(Array.to_list(Array.init(9, _x => Empty)))
   );
   test("new_board x4", () =>
     expect(new_board(4)) |> toEqual(Array.to_list(Array.init(16, _x => Empty)))
   );
+  /* make move */
   test("make_move (valid move, left edge)", () =>
     expect(make_move(X, new_board(2), 0))
     |> toEqual([Occupied(X), Empty, Empty, Empty])
@@ -28,6 +30,7 @@ describe("Board", () => {
     )
     |> toThrow
   );
+  /* possible moves */
   test("possible_moves (all)", () =>
     expect(possible_moves(new_board(2))) |> toEqual([0, 1, 2, 3])
   );
@@ -35,6 +38,7 @@ describe("Board", () => {
     expect(possible_moves([Empty, Occupied(X), Occupied(O), Empty]))
     |> toEqual([0, 3])
   );
+  /* occupied cell */
   test("occupied_cell X", () =>
     expect(occupied_cell(X, Occupied(X))) |> toEqual(true)
   );
@@ -44,6 +48,7 @@ describe("Board", () => {
   test("occupied_cell empty", () =>
     expect(occupied_cell(X, Empty)) |> toEqual(false)
   );
+  /* occupied row */
   test("occupied_row (empty)", () =>
     expect(occupied_row(X, [Empty, Empty, Empty])) |> toEqual(false)
   );
