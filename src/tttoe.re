@@ -18,6 +18,11 @@ type state = {
   winner: option(player)
 };
 
+type eval = {
+  score: int,
+  move: option(int)
+};
+
 let new_board = (dim: int) : board => {
   let rec aux = (n: int) => n > 0 ? [Empty, ...aux(n - 1)] : [];
   let cells = aux(dim * dim);
@@ -90,3 +95,36 @@ let opposite = (player: player) : player =>
   | X => O
   | O => X
   };
+
+let eval_sort = (e1: eval, e2: eval) : int => e1.score - e2.score;
+
+let best_for = (player: player, evals: list(eval)) : eval =>
+  List.(
+    switch player {
+    | O => evals |> sort(eval_sort) |> hd
+    | X => evals |> sort(eval_sort) |> rev |> hd
+    }
+  );
+
+let rec minimax = (board: board, player: player, depth: int) : eval => {
+  let evaluate_move = (move: int) : eval => {
+    let {score} =
+      minimax(make_move(player, move, board), opposite(player), depth + 1);
+    {score, move: Some(move)};
+  };
+  switch (get_state(board)) {
+  | {winner: Some(O), _} => {score: depth - 10, move: None}
+  | {winner: Some(X), _} => {score: 10 - depth, move: None}
+  | {winner: None, possible_moves: []} => {score: depth - 10, move: None}
+  | {winner: None, possible_moves: moves} =>
+    moves |> List.map(evaluate_move) |> best_for(player)
+  };
+};
+
+let cpu = (board: board) : board => {
+  let eval = minimax(board, O, 0);
+  switch eval.move {
+  | Some(move) => board |> make_move(O, move)
+  | _ => board
+  };
+};

@@ -2,8 +2,9 @@ open Jest;
 
 open Tttoe;
 
+open Expect;
+
 describe("Board", () => {
-  open Expect;
   /* new board */
   test("new_board x3", () =>
     expect(new_board(3).cells)
@@ -102,5 +103,20 @@ describe("Board", () => {
   );
   test("opposite (O->X)", () =>
     expect(opposite(O)) |> toEqual(X)
+  );
+});
+
+describe("Eval", () => {
+  let evals: list(eval) = [
+    {score: 9, move: None},
+    {score: 1, move: None},
+    {score: 5, move: None},
+    {score: (-4), move: None}
+  ];
+  test("best_for O", () =>
+    expect(best_for(O, evals)) |> toEqual({score: (-4), move: None})
+  );
+  test("best_for X", () =>
+    expect(best_for(X, evals)) |> toEqual({score: 9, move: None})
   );
 });
