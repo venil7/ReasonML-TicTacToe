@@ -120,3 +120,23 @@ describe("Eval", () => {
     expect(best_for(X, evals)) |> toEqual({score: 9, move: None})
   );
 });
+
+describe("Minimax", () => {
+  test("minimax (cpu defense)", () => {
+    let board =
+      new_board(3) |> make_move(X, 0) |> make_move(O, 1) |> make_move(X, 4);
+    let {cells} = cpu(board);
+    expect(List.nth(cells, 8)) |> toEqual(Occupied(O));
+  });
+  test("minimax (cpu win)", () => {
+    let board =
+      new_board(3)
+      |> make_move(X, 0)
+      |> make_move(O, 1)
+      |> make_move(X, 2)
+      |> make_move(O, 4)
+      |> make_move(X, 5);
+    let {cells} = cpu(board);
+    expect(List.nth(cells, 7)) |> toEqual(Occupied(O));
+  });
+});
