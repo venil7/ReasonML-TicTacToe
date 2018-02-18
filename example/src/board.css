@@ -1,5 +1,5 @@
 .board {
-  display: block;
+  display: inline-block;
   padding: 5px;
 }
 
@@ -28,4 +28,19 @@
 }
 .o {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABXUlEQVQ4T63UPS9lURTG8R+TaYR2BtFKfAWtTzBCIYROhEIUEtGJahKVCDOFhEQhQrz0Sh9CQXQY9SSKCSOLfeTYuZwTubvZN+vs9b9rPevZu0WTV0sN3hd8S+fu8PBRznvAiA9hJCVfp7077bs4xP8c3ggYSb9wik3cZ0ltmMQApnBb/p4DA7adDl5VyNGLDYyXoWVg/D7GHKpgxX8FdAU/ikAZOIwurNUYVPnIPC5xFMEy8CCVn2tWxW9PMkVBr8Cwxh6eg59YJxjEY1FhtLqI2U/AIiVcsYybZgF/YymmXQCb3nKUvY+JBkauUqEDW4X+5SnHVevBahUh+76Ac8Rg3tgm4OGl8NVFTWgffr5n7GB0YgfTNaABW8co/jS6KUUsoDG1s7T/zaoNzWbQn+78KyxvOe8yjDqGr4jnKyQJv/5LXTxrlq86D2wrvqe3Lx7Yx4/0rQOsOZ+XY08gWT0VXh4Y8gAAAABJRU5ErkJggg==)
+}
+
+.stats {
+  display: inline-block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.header {
+  font-weight: bolder;
+}
+.game {
+  color: grey;
 }

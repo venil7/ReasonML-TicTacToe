@@ -13,3 +13,12 @@ npm run build
 ```
 npm run test
 ```
+
+# Run Example
+```
+cd example
+npm install
+npm start
+```
+
+![example gameplay](https://user-images.githubusercontent.com/508022/36355005-4baa9e48-14d4-11e8-8ec8-dac0aee5c872.gif)
