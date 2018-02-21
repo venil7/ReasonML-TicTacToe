@@ -1,0 +1,8 @@
+{
+  "reason.codelens.enabled": true,
+  "reason.codelens.unicode": true,
+  "reason.diagnostics.tools": [
+    "merlin",
+    "bsb"
+  ]
+}
