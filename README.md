@@ -1,7 +1,9 @@
-# Minimax tic-tac-toe implementation in ReasonML
-*mostly a port from my [Haskell code](https://github.com/venil7/Programming-in-Haskell-exercises-/blob/master/tttoe/ttoe.hs)*
+# reason-tttoe
 
-A tic-tac-toe engine for Browser, Node.js, Mobile or Native.
+`reason-tttoe` is a Tic-Tac-Toe engine. This library can be used for game development in the browser, node.js, mobile or native. Its code is mostly a port of my [Haskell code](https://github.com/venil7/Programming-in-Haskell-exercises-/blob/master/tttoe/ttoe.hs).
+
+See [Example](./example/) of how it can be used on the web.
+
 
 ## Build
 [![Build Status](https://travis-ci.org/venil7/ReasonML-TicTacToe.svg?branch=master)](https://travis-ci.org/venil7/ReasonML-TicTacToe)

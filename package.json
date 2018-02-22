@@ -1,6 +1,11 @@
 {
   "name": "reason-tttoe",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/venil7/ReasonML-TicTacToe.git"
+  },
+  "description": "a game development library",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
@@ -15,8 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "@glennsl/bs-jest": "^0.3.3",
-    "bs-platform": "^2.1.0",
-    "jest": "^22.1.4"
+    "bs-platform": "^2.1.0"
   },
   "dependencies": {}
 }
